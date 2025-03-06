@@ -12,9 +12,9 @@ service = Service(driver_path)
 driver = webdriver.Chrome()
 driver.maximize_window()
 
-## open the url
+# open the url
 #driver.get('https://www.amazon.com/')
-##Amazon Logo
+#Amazon Logo
 #driver.find_element("//a[@class='nav-logo-link nav-progressive-attribute']")
 ##Email Field
 #driver.find_element("//input[@type='email' and @id='ap_email']")
@@ -47,7 +47,6 @@ sleep(2)
 #Go to login page
 driver.find_element(By.XPATH, "//span[text()='Sign into your Target account']")
 #Validate successful login
-#assert 'Sign into your Target account'.lower() in driver.current_url.lower(), f"Expected query not in {driver.current_url.lower()}"
 print('Test Case Passed')
 
 
