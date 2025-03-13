@@ -22,8 +22,12 @@ driver.maximize_window()
 #driver.find_element("//input[@type='submit' and @id='continue']")
 ##Conditions of Use link
 #driver.find_element("//*[@id='legalTextRow']/a[1]")
+#driver.find_element("//a[contains(@href, 'ap_signin_notification_condition_of_use')]")
+#driver.find_element("//div[@id='legalTextRow']//a[text()='Conditions of Use']")
 ##Privacy Notice Link
 #driver.find_element("//*[@id='legalTextRow']/a[2]")
+#driver.find_element("//a[contains@href, 'ap-signin-notification_privacy_notice']")
+#driver.find_element("//div[@id='legalTextRow']//a[text()='Privacy Notice']")
 ##Need Help Link
 #driver.find_element("//span[@class='a-expander-prompt']")
 ##Forgot Your Password Link
@@ -38,15 +42,18 @@ driver.maximize_window()
 #Create Test Case for Sign-In Page
 driver.get('https://www.target.com/')
 #Click top right sign-in icon)
-driver.find_element(By.XPATH, "//span[@class='sc-58ad44c0-3 cOUViz h-margin-r-x3']").click()
+driver.find_element(By.XPATH, "//*[@data-test='@web/AccountLink']").click()
+#driver.find_element(By.XPATH, "//span[@class='sc-58ad44c0-3 cOUViz h-margin-r-x3']").click()
 sleep(2)
 #Open Side Navigation (Sign-In Button)
 driver.find_element(By.XPATH, "//*[@data-test='accountNav-signIn']").click()
 sleep(2)
-#driver.find_element(By.XPATH, "//span[text()='Sign in']").click()
 #Go to login page
 driver.find_element(By.XPATH, "//span[text()='Sign into your Target account']")
 #Validate successful login
+expected = 'Sign into your Target account'
+actual = driver.find_element(By.XPATH, "//h1[contains(@class, 'styles_ndsHeading')]").text
+assert expected == actual, f'Expected {expected} did not match actual {actual}'
 print('Test Case Passed')
 
 
