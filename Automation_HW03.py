@@ -25,21 +25,15 @@ driver.find_element(By.CSS_SELECTOR, "input#ap_email")
 #Find entry box 'Password'
 driver.find_element(By.CSS_SELECTOR, "input#ap_password")
 #Find 'Password must be at least 6 characters'
-driver.find_element(By.CSS_SELECTOR, "")
+driver.find_element(By.CSS_SELECTOR, "[id='ap_password_context_message_section']")
 #Find entry box 'Re-enter Password'
 driver.find_element(By.CSS_SELECTOR, "input#ap_password_check")
 #Find button 'Create your Amazon account'  or 'Continue'
 driver.find_element(By.CSS_SELECTOR, "input#continue.a-button-input")
 #Find link 'Conditions of Use'
-driver.find_element(By.CSS_SELECTOR, "")
+driver.find_element(By.CSS_SELECTOR, "[href*='ap_register_notification_condition_of_use']")
 #Find link 'Privacy Notice'
-driver.find_element(By.CSS_SELECTOR, "")
+driver.find_element(By.CSS_SELECTOR, "[href*='ap_register_notification_privacy_notice']")
 #Find link 'Sign in'
 driver.find_element(By.CSS_SELECTOR, ".a-link-emphasis")
 
-#Create a test case using BDD that opens target.com, clicks on the cart icon and verifies that “Your cart is empty” message is shown:
-#Open target.com. Click on Cart icon. Verify “Your cart is empty” message is shown
-
-#Create a test case using BDD to verify that a logged out user can navigate to Sign In:
-#Open target.com. Click Sign In. From right side navigation menu, click Sign In.
-#Verify Sign In form opened
