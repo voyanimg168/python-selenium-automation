@@ -25,7 +25,7 @@ driver.find_element(By.CSS_SELECTOR, "input#ap_email")
 #Find entry box 'Password'
 driver.find_element(By.CSS_SELECTOR, "input#ap_password")
 #Find 'Password must be at least 6 characters'
-driver.find_element(By.CSS_SELECTOR, "[id='ap_password_context_message_section']")
+driver.find_element(By.CSS_SELECTOR, "[id='ap_password_context_message_section'git]")
 #Find entry box 'Re-enter Password'
 driver.find_element(By.CSS_SELECTOR, "input#ap_password_check")
 #Find button 'Create your Amazon account'  or 'Continue'

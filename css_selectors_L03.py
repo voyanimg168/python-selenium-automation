@@ -33,6 +33,6 @@ driver.find_element(By.CSS_SELECTOR, ".nav-input[name='field-keywords'][aria-lab
 driver.find_element(By.CSS_SELECTOR, "input.nav-input[name='field-keywords'][aria-label='Search Amazon']")
 # CSS, attributes/contains => []
 driver.find_element(By.CSS_SELECTOR, "[aria-label*='Search Amazon']")
-driver.find_element(By.CSS_SELECTOR, "[data-text='accountNav-signIn']")
+driver.find_element(By.CSS_SELECTOR, "[data-test='accountNav-signIn']")
 driver.find_element(By.CSS_SELECTOR, "[class*='styles_ndsBaseButton'][class*='styles_ndsButtonPrimary']")
 # Note: CSS cannot connect to text()
