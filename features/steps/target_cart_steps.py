@@ -18,11 +18,16 @@ def open_cart_page(context):
 def verify_product_name(context):
     product_name_in_cart = context.driver.find_element(*CART_ITEM_TITLE).text
     print('Name in cart: ' + product_name_in_cart)
+    print('Name we have stored: ' + context.product_name)
     assert context.product_name[:40] == product_name_in_cart[:40], \
         f'Expected {context.product_name[:40]} did not match {product_name_in_cart[:40]}'
 
 @then('Verify cart has {amount} items')
 def verify_cart_items(context, amount):
+    context.driver.wait.until(
+        EC.visibility_of_element_located(CART_SUMMARY),
+        message='Cart summary is not visible.'
+    )
     cart_summary = context.driver.find_element(*CART_SUMMARY).text
     assert amount in cart_summary, f'Expected {amount} items not in {cart_summary}'
 

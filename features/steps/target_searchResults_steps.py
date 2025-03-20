@@ -6,7 +6,7 @@ from time import sleep
 SEARCH_RESULTS_TEXT = (By.XPATH, "//div[@data-test='lp-resultsCount']") #or (By.CSS_SELECTOR, "[data-test='@web/CartLink']")
 CART_ICON = (By.CSS_SELECTOR, "[data-test='@web/CartLinkQuantity']")
 ADD_TO_CART_BTN = (By.CSS_SELECTOR, '[id*="addToCartButtonOrTextId"]')
-SIDE_NAV_PRODUCT_NAME = (By.CSS_SELECTOR, "[data-test='content-wrapper'] h4")
+SIDE_NAV_PRODUCT_NAME = (By.CSS_SELECTOR, "[class='styles_ndsHeading__HcGpD styles_fontSize4__FN7fp styles_x4Margin__JWxMT']")
 SIDE_NAV_ADD_TO_CART_BTN = (By.CSS_SELECTOR, '[data-test="content-wrapper"] [id*="addToCartButton"]')
 SIDE_NAV_VIEW_CART_BTN = (By.CSS_SELECTOR, "[href='/cart']")
 
@@ -32,15 +32,6 @@ def store_product_name(context):
     context.product_name = context.driver.find_element(*SIDE_NAV_PRODUCT_NAME).text
     print('Product name stored: ' + context.product_name)
 
-# @when('Store product DPCI')  ##Since product name not exactly same on each page, want to verify via DPCI vs product name
-# def store_product_DPCI(context):
-#     context.driver.wait.until(
-#         EC.visibility_of_element_located(SIDE_NAV_PRODUCT_NAME),
-#         message='Product name not visible'
-#     )
-#     context.product_DPCI = context.driver.find_element(By.XPATH, ("//div[@data-test='item-details-specifications']//span[contains(text(), 'DPCI')]")
-# ')
-#     print('Product DPCI stored: ' + context.product_DPCI)
 
 @when('Confirm Add to Cart button from side navigation')
 def side_nav_click_add_to_cart(context):

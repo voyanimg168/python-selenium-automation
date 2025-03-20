@@ -30,8 +30,8 @@ Feature: Target Search test cases
     Given Open target main page
     When Search for coffee
     And Click on Add to Cart button
-    And Store product name
     And Confirm Add to Cart button from side navigation
+    And Store product name
     And Click on View Cart button from side navigation
     Then Verify cart has 1 items
     Then Verify cart has correct product
