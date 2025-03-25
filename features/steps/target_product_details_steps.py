@@ -1,4 +1,6 @@
 from time import sleep
+
+from behave.reporter.summary import status_order
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from behave import given, then
@@ -6,7 +8,7 @@ from behave import given, then
 COLOR_OPTIONS = (By.CSS_SELECTOR, "div[aria-label='Carousel'] li img")
 #COLOR_OPTIONS = (By.CSS_SELECTOR, "[class='styles_fadeInPicture__X_1Zl styles_animated__7ypei styles_fullWidth__z04mu styles_fullHeight__xxwBI'][alt]")
 #ACTUAL_COLOR = ("[data-test='@web/VariationComponent'] div")
-ACTUAL_COLOR = (By.CSS_SELECTOR, 'div[aria-label*="olor"]')
+ACTUAL_COLOR = (By.CSS_SELECTOR, 'div[aria-label*="color"]')
 
 @given('Open target {product_id} page')
 def open_target_product_page(context, product_id):
