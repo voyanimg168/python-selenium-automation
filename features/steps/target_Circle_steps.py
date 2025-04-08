@@ -1,6 +1,5 @@
-from selenium.webdriver.common.by import By
 from behave import given, when, then
-from time import sleep
+from selenium.webdriver.common.by import By
 
 BENEFIT_CELLS = (By.CSS_SELECTOR, "[class='cell-item-content']")
 
@@ -14,7 +13,9 @@ def click_target_circle_benefit(context):
 
 @then('Verify {cell_amount} benefit cells show on Target Circle page')
 def verify_all_target_circle_benefit_cells_show(context, cell_amount):
-    cell_amount = int(cell_amount)
-    cells = context.driver.find_elements(*BENEFIT_CELLS)
-    print(cells)
-    assert len(cells) == cell_amount, f'Expected {cell_amount} cells, but got {len(cells)}'
+    # cell_amount = int(cell_amount)
+    # cells = context.driver.find_elements(*BENEFIT_CELLS)
+    # print(cells)
+    # assert len(cells) == cell_amount, f'Expected {cell_amount} cells, but got {len(cells)}'
+    context.app.verify_all_target_circle_benefit_cells_show(cell_amount)
+    print(*BENEFIT_CELLS)

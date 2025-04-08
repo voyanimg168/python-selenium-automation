@@ -30,8 +30,8 @@ driver.find_element(By.CSS_SELECTOR, "[id='ap_password_context_message_section'g
 driver.find_element(By.CSS_SELECTOR, "input#ap_password_check")
 #Find button 'Create your Amazon account'  or 'Continue'
 driver.find_element(By.CSS_SELECTOR, "input#continue.a-button-input")
-#Find link 'Conditions of Use'
-driver.find_element(By.CSS_SELECTOR, "[href*='ap_register_notification_condition_of_use']")
+#Find link 'Conditions of Use' $$("#legalTextRow [href*='ap_register_notification_condition_of_use']")
+driver.find_element(By.CSS_SELECTOR, "#legalTextRow [href*='condition_of_use']")
 #Find link 'Privacy Notice'
 driver.find_element(By.CSS_SELECTOR, "[href*='ap_register_notification_privacy_notice']")
 #Find link 'Sign in'

@@ -12,7 +12,7 @@ driver_path = ChromeDriverManager().install()
 # create a new Chrome browser instance
 service = Service(driver_path)
 driver = webdriver.Chrome(service=service)
-#driver.implicitly_wait(4) #checks for element every 100 ms
+driver.implicitly_wait(4) #checks for element every 100 ms & applies to all environment fxns
 driver.maximize_window()
 driver.wait = WebDriverWait(driver, 10) #usually longer 10-15s vs implicit wait is 4s
 
