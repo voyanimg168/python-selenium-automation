@@ -26,6 +26,11 @@ class CartPage(Page):
         # cart_summary = context.driver.find_element(*CART_SUMMARY).text
         # assert amount in cart_summary, f'Expected {amount} items not in {cart_summary}'
 
+    def verify_cart_page_opens(self):
+        self.verify_url(f'{self.base_url}cart') # 'https://www.target.com/' + 'cart'
+        # self.wait_until_visible(*self.base_url)
+        self.wait_until_clickable_click(*self.CART_ICON)
+
     def verify_cart_empty(self, cart_empty_msg):
         # self.verify_cart_empty(f'Your cart is empty')
         # expected_text = f'Your cart is empty'
@@ -35,7 +40,3 @@ class CartPage(Page):
         # actual_text = self.find_element(*self.CART_EMPTY_MSG).text
         # assert expected_text in actual_text, f'Expected {expected_text} did not match {actual_text}'
 
-    def verify_cart_page_opens(self):
-        self.verify_url(f'{self.base_url}cart') # 'https://www.target.com/' + 'cart'
-        # self.wait_until_visible(*self.base_url)
-        self.wait_until_clickable_click(*self.CART_ICON)

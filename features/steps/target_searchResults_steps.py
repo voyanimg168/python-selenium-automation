@@ -1,4 +1,5 @@
 from behave import when, then
+from time import sleep
 from selenium.webdriver.common.by import By
 
 # SEARCH_RESULTS_TEXT = (By.XPATH, "//div[@data-test='lp-resultsCount']") #or (By.CSS_SELECTOR, "[data-test='@web/CartLink']")
@@ -18,17 +19,17 @@ PRODUCT_IMG = (By.CSS_SELECTOR, 'img')
 
 # @then('Verify correct search results shown for {expected_text}')
 # def verify_search_results(context, expected_text):
-    # actual_text = context.driver.find_element(*SEARCH_RESULTS_TEXT).text
-    # # expected_text = 'search_word'
-    # # assert expected_text in actual_text, f'Error. Text {expected_text} not in {actual_text}'
-    # context.app.searchResults_page.verify_search_results(expected_text)
-    # # search_results_header = context.driver.find_element(By.CSS_SELECTOR, "[data-test='resultsHeading']").text
-    # # assert search_word in search_results_header, \
-    # #     f'Expected text {search_word} not in {search_results_header}'
+#     actual_text = context.driver.find_element(*SEARCH_RESULTS_TEXT).text
+#     expected_text = 'search_word'
+#     assert expected_text in actual_text, f'Error. Text {expected_text} not in {actual_text}'
+#     context.app.searchResults_page.verify_search_results(expected_text)
+    # search_results_header = context.driver.find_element(By.CSS_SELECTOR, "[data-test='resultsHeading']").text
+    # assert search_word in search_results_header, \
+    #     f'Expected text {search_word} not in {search_results_header}'
 
 @then('Verify {expected_text} in URL')
-def verify_results_url(context, expected_text):
-    context.app.searchResults_page.verify_results_url(expected_text)
+def verify_expected_text_url(context, expected_text):
+    context.app.searchResults_page.verify_expected_text_url(expected_text)
 
 @when('Click on Add to Cart button')
 def click_add_to_cart(context):
@@ -69,7 +70,6 @@ def verify_fav_tooltip(context):
 def verify_search_results(context, expected_text):
     context.app.searchResults_page.verify_search_results(expected_text)
     # actual_text = context.driver.find_element(*SEARCH_RESULTS_TEXT).text
-    # actual_text =  context.driver.find_element(By.XPATH, "//div[@data-test='lp-resultsCount']")
     # expected_text == actual_text
     # assert expected_text in actual_text, f'Error. Text {expected_text} not found in {actual_text}'
 
@@ -81,23 +81,12 @@ def side_nav_click_view_cart(context):
 
 @then('Verify that every product has a name and an image')
 def verify_products_name_img(context):
-    products = context.app.searchResults_page.verify_products_name_img(*LISTINGS)[:8]
-
-    for product in products:
-        title = product.find_element(*PRODUCT_TITLE).text
-        assert title, 'Product title not shown'
-        print(title)
-        product.find_element(*PRODUCT_IMG)
-    ## To see ALL listings (comment out if you only check top ones):
-    # context.driver.execute_script("window.scrollBy(0,2000)", "")
-    # sleep(2)
-    # context.driver.execute_script("window.scrollBy(0,1000)", "")
-    # sleep(2)
+    context.app.searchResults_page.verify_products_name_img()
     # products = context.driver.find_elements(*LISTINGS)[:8]
     #
     # for product in products:
     #     title = product.find_element(*PRODUCT_TITLE).text
-    #     assert title, 'Product title not shown'
+    #     assert title != '', 'Product title not shown'
     #     print(title)
     #     product.find_element(*PRODUCT_IMG)
 

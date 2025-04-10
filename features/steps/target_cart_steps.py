@@ -1,6 +1,5 @@
 from behave import when, then
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
 
 SEARCH_RESULTS_MESSAGE = (By.CSS_SELECTOR, "[@data-test='boxEmptyMsg']")
 CART_ICON = (By.XPATH, "//div[@data-test='@web/CartIcon']")
@@ -44,9 +43,9 @@ def verify_cart_amount_items(context, amount):
 
 @then("Verify 'Your cart is empty' message is shown")
 def verify_cart_empty(context):
-    context.app.cart_page.verify_cart_empty()
-    # expected_text = 'Your cart is empty'
-    # actual_text = context.driver.find_element(By.XPATH, "//h1[text()='Your cart is empty']").text
-    # assert expected_text in actual_text, f'Expected {expected_text} did not match {actual_text}'
+    # context.app.cart_page.verify_cart_empty()
+    expected_text = 'Your cart is empty'
+    actual_text = context.driver.find_element(By.XPATH, "//h1[text()='Your cart is empty']").text
+    assert expected_text in actual_text, f'Expected {expected_text} did not match {actual_text}'
 
 
