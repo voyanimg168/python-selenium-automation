@@ -27,13 +27,13 @@ def open_help_returns_page(context):
 # def verify_promotions_opened(context):
 #     context.app.help_page.verify_promotions_opened()
 
-@when('Select Browse Help topic {option_value}')
-def select_browse_help_topic(context, option_value):
-    context.app.help_page.select_browse_help_topic(option_value)
+@when('Select Browse Help topic {dd_option_value}')
+def select_browse_help_topic(context, dd_option_value):
+    context.app.help_page.select_browse_help_topic(dd_option_value)
 
-@then('Verify Help topic {option_value} page opens')
-def verify_help_topic_page_opens(context, option_value):
-    context.app.help_page.verify_help_topic_page_opens(option_value)
+@then('Verify Help topic {dd_option_value} page opens')
+def verify_help_topic_page_opens(context, dd_option_value):
+    context.app.help_page.verify_help_topic_page_opens(dd_option_value)
 
 @when('Click on Target Help button')
 def click_on_target_help_btn(context):

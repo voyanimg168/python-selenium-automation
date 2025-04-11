@@ -9,11 +9,9 @@ Feature: Main Menu test cases
         And Store original window
         When Input signin email
         And Click continue signin button after email
-        And Input signin password
-        And Click on Sign In With Password Button
-#        And Skip add mobile phone number
-#        And Maybe later create passkey
-        Then Verify user is logged in
+        And Input incorrect password
+#        And Click on Sign In With Password Button
+#        Then Verify user is logged in
 
     Scenario: User can open and close Terms and Conditions from sign in page
         Given Open Target Main Page

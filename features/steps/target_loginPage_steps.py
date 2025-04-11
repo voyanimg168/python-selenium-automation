@@ -78,6 +78,10 @@ def switch_to_original_window(context):
 def input_signin_password(context):
     context.app.login_page.input_signin_password()
 
+@when('Input incorrect password')
+def input_incorrect_password(context):
+    context.app.login_page.input_incorrect_password()
+
 @when('Click on Sign In With Password Button')
 def click_signin_password_btn(context):
     context.app.login_page.click_signin_password_btn()

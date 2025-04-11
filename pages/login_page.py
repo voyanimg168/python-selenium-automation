@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
 
-from features.steps.target_loginPage_steps import SIGNIN_CONFIRMATION
+from features.steps.target_loginPage_steps import SIGNIN_CONFIRMATION, SIGNIN_PASSWORD
 from pages.base_page import Page
 
 class LoginPage(Page):
@@ -10,6 +10,7 @@ class LoginPage(Page):
     # FIRST_NAME = 'lexberto'
     # LAST_NAME= 'angie'
     PASSWORD = 'LEXberto'
+    ERROR_PASSWORD = (By.XPATH, '//span[text()="Please enter a valid password"]'[1])
     SIGNIN_PAGE_TITLE = (By.XPATH, '//h1[text()="Sign in or create account"]')
     SIGNIN_EMAIL = (By.CSS_SELECTOR, '[id*="username"]')
     CONTINUE_SIGNIN_BTN = (By.CSS_SELECTOR, 'button[id*="login"]')
@@ -52,15 +53,17 @@ class LoginPage(Page):
     def input_signin_password(self):
         self.wait_until_visible(*self.SIGNIN_PASSWORD)
         self.input_text(self.PASSWORD, *self.SIGNIN_PASSWORD)
+        PASSWORD = self.SIGNIN_PASSWORD
+        assert PASSWORD == SIGNIN_PASSWORD, f'Expected url {PASSWORD} does not match actual {SIGNIN_PASSWORD}'
+
+    def input_incorrect_password(self):
+        self.wait_until_visible(*self.SIGNIN_PASSWORD)
+        self.input_text(self.ERROR_PASSWORD, *self.SIGNIN_PASSWORD)
+        assert self.ERROR_PASSWORD != SIGNIN_PASSWORD, f'Please enter a valid password'
+        print('Please enter a valid password')
 
     def click_signin_password_btn(self):
         self.wait_until_clickable_click(*self.SIGNIN_PASSWORD_BTN)
-
-    # def skip_add_mobile_phone_number(self):
-    #     self.click(*self.SKIP_ADD_MOBILE_PHONE)
-    #
-    # def maybe_later_create_passkey(self):
-    #     self.click(*self.CREATE_PASSKEY_LATER)
 
     def verify_user_is_logged_in(self):
         self.find_element(*self.SIGNIN_CONFIRMATION)

@@ -10,7 +10,8 @@ Feature: Help Page UI Test Case
     When Select Browse Help topic <option_value>
     Then Verify Help topic <header> page opens
     Examples:
-    |option_value         |header               |
-    |Promotions & Coupons |Current promotions   |
-    |Target Circle™       |About Target Circle  |
+    |option_value         |header                               |
+    |Promotions & Coupons |Current promotions                   |
+    |Target Circle™       |About Target Circle                  |
+    |Registries & Lists   |Create & manage registry & wish list |
 
